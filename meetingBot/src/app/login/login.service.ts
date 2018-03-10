@@ -12,13 +12,14 @@ getUserName ():String{
     return this.userName;
 }
 isvaliduser(username:string,pwd:string){
-    if (username=="admin") {
-        this.isLoggedin = true;
-        return true;
-    } else {
-        this.isLoggedin = false;
-        return false;
-    }
+    // if (username=="admin") {
+    //     this.isLoggedin = true;
+    //     return true;
+    // } else {
+    //     this.isLoggedin = false;
+    //     return false;
+    // }
+    return true;
 }
 
 private isLoggedin:boolean = false;

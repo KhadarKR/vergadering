@@ -6,8 +6,8 @@ import {Input, Output , EventEmitter} from "@angular/core"
  // Out put for the component
  template: `{{tittle}}
  <form>
- <input type = "text" #frmusername placeholder = "Enter User Name"\>
- <input type = "text" #frmpassword placeholder = "Enter Password"\>
+ <input type = "text" #frmusername placeholder = "Enter User Name"\> <br>
+ <input type = "password" #frmpassword placeholder = "Enter Password"\>
  <button type="button" (click) = "onButtonClick(frmusername.value,frmpassword.value)">{{tittle}}</button>
  </form>`
 })

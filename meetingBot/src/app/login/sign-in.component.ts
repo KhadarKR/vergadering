@@ -6,7 +6,7 @@ import {Component} from "@angular/core"
     // Tag Name for component
     selector: "sign-in",
     // Out put for the component
-    template: `<my-sign tittle="Sign In" (myEvent)="handlemyEvent($event)"></my-sign>`
+    templateUrl: `./sign-in.component.html`
 })
 export class SignInComponent{
 
@@ -18,7 +18,7 @@ export class SignInComponent{
             console.log("SIGN IN COMPONENT unmae:" , obj.username, "PASSWORD :" , obj.password)
             this.ls.setUserName(obj.username);
             if(this.ls.isvaliduser(obj.username,obj.password)){
-                this.router.navigate(["/manage"])
+                this.router.navigate(["/Calendar"])
             }else{
                 this.router.navigate(["/error"])
             }

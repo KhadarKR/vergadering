@@ -28,10 +28,10 @@ export class HeaderComponent implements OnInit{
     }
     ngOnInit(){
         this.menuitems = [
-            {label: 'Home',    routerLink:['/'] , routerLinkActiveOptions:{exact:true}},
-            {label: 'Log In', routerLink:['/LogIn']},
-            {label: 'Sign Up', routerLink:['/SignUp']},
-            {label: 'Shopping List', routerLink:['/list']}
+            {label: 'Home',    routerLink:['/'] , routerLinkActiveOptions:{exact:true}}
+            // {label: 'Log In', routerLink:['/LogIn'],},
+            
+            // {label: 'Shopping List', routerLink:['/list']}
 
     ]
 

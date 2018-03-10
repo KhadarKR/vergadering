@@ -1,3 +1,4 @@
+import { DemoModule } from './../demo/demo.module';
 import { LoginGuard } from './login.guard';
 import { LoginService } from './login.service';
 import { SharedModule } from './../shared/shared.module';
@@ -18,7 +19,7 @@ import { SinoutComponent } from './sinout.component'
     //Startup component (root component details here)
     exports: [SignInComponent,SignUpComponent,SinoutComponent],
     // specify here the dependency modules
-    imports:[SharedModule],
+    imports:[SharedModule ,DemoModule],
     providers:[LoginService,LoginGuard]
 
     
