@@ -15,9 +15,9 @@ class Location(models.Model):
         return self.name
 
 class Employee(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE,)
+    user = models.OneToOneField(User, related_name = 'user', on_delete=models.CASCADE)
     employee_id = models.CharField(max_length=7, blank=True)
-    location = models.ManyToManyField(Location, blank=True)
+    # location = models.ForeignKey(Location, blank=True)
     avail_start_time = models.TimeField(default='08:00')
     avail_end_time = models.TimeField(default='16:00')
 
@@ -25,16 +25,15 @@ class Employee(models.Model):
         return self.employee_id
     class Meta:
         ordering = ['employee_id']
-
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Employee.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.employee.save()
+#
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Employee.objects.create(user=instance)
+#
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.save()
 
 
 class Room(models.Model):

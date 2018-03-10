@@ -17,15 +17,15 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
 from rest_framework import routers
+from rest_framework.urlpatterns import format_suffix_patterns
 
 from .meetingbotapi import views
-
+from .meetingbotapi import urls as meetingboturls
 router = routers.DefaultRouter()
-# router.register(r'^$', views)
-
+# router.register(r'^$', 'meetingbotapi.urls')
 
 urlpatterns = [
-    # url(r'^$', views.api_root),
+    url(r'^', include(meetingboturls)),
     url(r'^', include(router.urls)),
     path('admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
