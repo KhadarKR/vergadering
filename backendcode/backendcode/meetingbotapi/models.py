@@ -71,6 +71,7 @@ class Meeting(models.Model):
     end_time = models.DateTimeField()
     created = models.DateTimeField(auto_now_add=True)
     type = models.IntegerField(default=1)
+    timezone_requestor = models.CharField(max_length=20, default='Europe/Brussels')
     # define slug field for unique url to the Meeting
     slug = models.SlugField(blank=True, max_length=255)
 

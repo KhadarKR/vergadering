@@ -57,6 +57,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backendcode.urls'
 CORS_ORIGIN_ALLOW_ALL = True
+TIME_ZONE = 'UTC'
 
 TEMPLATES = [
     {
