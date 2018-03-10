@@ -1,3 +1,9 @@
+import { RoomInfoService } from './../servicesAndModels/roomInfo.service';
+import { EmployeeDetailsService } from './../servicesAndModels/employeeDetails.service';
+import { ParticipantsInfoService } from './../servicesAndModels/participantsinfo.service';
+import { MeetingInfo } from './../servicesAndModels/meetingInfo.model';
+import { MeetingInfoService } from './../servicesAndModels/meetingInfo.service';
+import { OnInit } from '@angular/core';
 import {
     Component,
     ChangeDetectionStrategy,
@@ -24,17 +30,21 @@ import {
   
   const colors: any = {
     red: {
+      // red
       primary: '#ad2121',
       secondary: '#FAE3E3'
     },
     blue: {
+      // blue
       primary: '#1e90ff',
       secondary: '#D1E8FF'
     },
-    yellow: {
+    yello: {
+      // yellow
       primary: '#e3bc08',
       secondary: '#FDF1BA'
-    }
+    },
+    
   };
   
   @Component({
@@ -44,13 +54,17 @@ import {
     styleUrls: ['styles.css'],
     templateUrl: 'template.html'
   })
-  export class DemoComponent {
+  export class DemoComponent implements  OnInit{
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
   
     view: string = 'month';
   
     viewDate: Date = new Date();
-  
+    refresh: Subject<any> = new Subject();
+    eventsfromDatabase: MeetingInfo[] = [];
+      events: CalendarEvent[] = [] ;
+      ca :CalendarEvent;
+
     modalData: {
       action: string;
       event: CalendarEvent;
@@ -72,45 +86,57 @@ import {
       }
     ];
   
-    refresh: Subject<any> = new Subject();
-  
-    events: CalendarEvent[] = [
-      {
-        start: subDays(startOfDay(new Date()), 1),
-        end: addDays(new Date(), 1),
-        title: 'A 3 day event',
-        color: colors.red,
-        actions: this.actions
-      },
-      {
-        start: startOfDay(new Date()),
-        title: 'An event with no end date',
-        color: colors.yellow,
-        actions: this.actions
-      },
-      {
-        start: subDays(endOfMonth(new Date()), 3),
-        end: addDays(endOfMonth(new Date()), 3),
-        title: 'A long event that spans 2 months',
-        color: colors.blue
-      },
-      {
-        start: addHours(startOfDay(new Date()), 2),
-        end: new Date(),
-        title: 'A draggable and resizable event',
-        color: colors.yellow,
-        actions: this.actions,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true
-        },
-        draggable: true
-      }
-    ];
+   
+   
   
     activeDayIsOpen: boolean = true;
   
-    constructor(private modal: NgbModal) {}
+    constructor(private modal: NgbModal ,private ms:MeetingInfoService , private parse:ParticipantsInfoService, 
+      private empse:EmployeeDetailsService , private roser:RoomInfoService) {      
+    }
+
+    ngOnInit() {
+      // this.products = this.ps.getProducts();
+      this.ms.getMeetingsInfo().subscribe(
+        (data) => {this.eventsfromDatabase = data;
+          for (var index = 0; index < this.eventsfromDatabase.length; index++) {
+            console.log(data[index])
+            this.events.push({
+      title: data[index].Meeting_Title,
+      start:  new Date(data[index].PlannedDT),
+      // startTime: data[index].PlannnedTM.toString(),
+      duration: data[index].MeetingDuration,
+      color: colors.red ,
+      actions : this.actions
+    })
+    this.refresh.next();
+            }
+          }
+        ,
+        (err) => console.log("Error",err)
+      );
+
+      this.ms.getMeetingsInfo().subscribe(
+        (data) => {this.eventsfromDatabase = data;
+          for (var index = 0; index < this.eventsfromDatabase.length; index++) {
+            console.log(data[index])
+            this.events.push({
+      title: data[index].Meeting_Title,
+      start:  new Date(data[index].PlannedDT),
+      color: colors.red ,
+      actions : this.actions
+    })
+    this.refresh.next();
+            }
+          }
+        ,
+        (err) => console.log("Error",err)
+      );
+
+       
+      
+        }
+    
   
     dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
       if (isSameMonth(date, this.viewDate)) {

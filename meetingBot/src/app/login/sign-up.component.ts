@@ -15,4 +15,6 @@ import { Component } from '@angular/core';
  <mwl-demo-component> </mwl-demo-component>`
 }) 
 export class SignUpComponent{
+
+    
 }

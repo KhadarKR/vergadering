@@ -12,22 +12,22 @@ restURL = "http://localhost:3000/wsproducts/";
     // this.productsData = [new Product(1,"Bravia" , 4500 , "SOny Smart Tv") ,new Product(2 , "Galaxy", 15000 ,"Samsung Mobile")];
   }
 
-  getProducts(){
+  getEmployeeMeetingInfo(){
     // return this.productsData;
     return this.http.get<EmployeeMeetingInfo[]>(this.restURL);
   }
 
-  addProduct (newEmployeeMeetingInfo:EmployeeMeetingInfo){
+  addEmployeeMeetingInfo (newEmployeeMeetingInfo:EmployeeMeetingInfo){
 return this.http.post<EmployeeMeetingInfo>(this.restURL,newEmployeeMeetingInfo);
   }
 
 
-  deleteProduct (id:number){
+  deleteEmployeeMeetingInfo (id:number){
     return this.http.delete(this.restURL+"/"+id);
       }
 
 
-  updateProduct (employeeMeetingInfo:EmployeeMeetingInfo){
-    return this.http.put<EmployeeMeetingInfo>(this.restURL+"/"+employeeMeetingInfo.MeetingId,employeeMeetingInfo);
+  updateEmployeeMeetingInfo (employeeMeetingInfo:EmployeeMeetingInfo){
+    return this.http.put<EmployeeMeetingInfo>(this.restURL+"/"+employeeMeetingInfo.MeetignID,employeeMeetingInfo);
       }
 }

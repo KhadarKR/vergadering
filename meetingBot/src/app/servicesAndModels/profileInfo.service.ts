@@ -6,28 +6,28 @@ import {HttpClient} from "@angular/common/http"
 @Injectable()
 export class ProfileInfoService {
 private profileInfos:ProfileInfo[];
-restURL = "http://localhost:3000/wsproducts/";
+restURL = "http://localhost:3205/Profile_INFO/";
   constructor(private http:HttpClient) { 
    
     // this.productsData = [new Product(1,"Bravia" , 4500 , "SOny Smart Tv") ,new Product(2 , "Galaxy", 15000 ,"Samsung Mobile")];
   }
 
-  getProducts(){
+  getProfileInfo(){
     // return this.productsData;
     return this.http.get<ProfileInfo[]>(this.restURL);
   }
 
-  addProduct (newProfileInfo:ProfileInfo){
+  addProfileInfo (newProfileInfo:ProfileInfo){
 return this.http.post<ProfileInfo>(this.restURL,newProfileInfo);
   }
 
 
-  deleteProduct (id:number){
+  deleteProfileInfo (id:number){
     return this.http.delete(this.restURL+"/"+id);
       }
 
 
-  updateProduct (profileInfo:ProfileInfo){
+  updateProfileInfo (profileInfo:ProfileInfo){
     return this.http.put<ProfileInfo>(this.restURL+"/"+profileInfo.Level,profileInfo);
       }
 }

@@ -1,7 +1,0 @@
-{"wsproducts":[
-{"id":1 , "name":"Product 1", "price":400 , "description":"First PRoduct"},
-{"id":2 , "name":"Product 2", "price":500 , "description":"Secon PRoduct"},
-{"id":3 , "name":"Product 3", "price":600 , "description":"third PRoduct"},
-{"id":4 , "name":"Product 4", "price":700 , "description":"Fourt PRoduct"},
-{"id":5 , "name":"Product 5", "price":800 , "description":"Fifth PRoduct"}
-]}
