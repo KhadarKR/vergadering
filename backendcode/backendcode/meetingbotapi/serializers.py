@@ -29,7 +29,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
         user = UserSerializer.create(UserSerializer(), validated_data=user_data)
         employee, created = Employee.objects.update_or_create(user=user,
                                                                        employee_id=validated_data.pop('employee_id'),
-                                                                       # location=validated_data.pop('location')[0],
+                                                                       location=validated_data.pop('location'),
                                                                        avail_start_time= str(validated_data.pop('avail_start_time')),
                                                                        avail_end_time= str(validated_data.pop('avail_end_time')))
         return employee
@@ -42,6 +42,6 @@ class MeetingSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Meeting
-        fields = ('id', 'title','requestor', 'participant', 'rooms', 'start_time', 'end_time')
+        fields = ('id', 'title','requestor_id', 'participant', 'rooms', 'room_required','video_conference_required','priority','start_time', 'end_time')
         read_only_fields = ('created', 'slug')
 
