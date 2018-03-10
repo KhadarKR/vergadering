@@ -1,5 +1,11 @@
 from django.db import models
 
+
+from django.db.models import signals
+from django.core.mail import send_mail
+
+from django_celery_beat.models import PeriodicTask
+
 # user model related
 from django.contrib.auth.models import User
 # Create your models here.
@@ -101,3 +107,14 @@ class Calender(models.Model):
     year = models.IntegerField(default=2018)
     month = models.IntegerField(default=1)
     day = models.IntegerField(default=1)
+
+
+def meeting_post_save(sender, instance, signal, *args, **kwargs):
+    # Send verification email
+    send_mail(
+        'Your Meeting with {} is Created.'.format(instance.title),
+        'from@meetingbot.dev',
+        [instance.email],
+        fail_silently=False,
+    )
+signals.post_save.connect(meeting_post_save, sender=Meeting)

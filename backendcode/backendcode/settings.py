@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,8 +28,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_BACKEND = 'django-cache'
 # Application definition
+
+# REDIS related settings
+REDIS_HOST = 'localhost'
+REDIS_PORT = '6379'
+BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Brussels'
+CELERY_BEAT_SCHEDULE = {
+    # 'task-number-one': {
+    #         'task': 'meetingbotapi.tasks.add',
+    #         'schedule': crontab(minute=59, hour=23),
+    #         # 'args': (*args)
+    #     },
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,7 +62,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backendcode.meetingbotapi',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [

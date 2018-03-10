@@ -16,7 +16,7 @@ from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
-
+from django_celery_beat.models import PeriodicTask
 
 from rest_framework import generics
 from .serializers import *
@@ -47,3 +47,7 @@ class MeetingCreateView(generics.ListCreateAPIView):
 class MeetingDetailView(generics.ListCreateAPIView):
     queryset = Meeting.objects.all()
     serializer_class = MeetingSerializer
+
+class PeriodicTaskView(generics.ListCreateAPIView):
+    queryset = PeriodicTask.objects.all()
+    serializer_class = PeriodicTaskSerializer

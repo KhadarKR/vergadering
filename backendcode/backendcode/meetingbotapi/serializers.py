@@ -45,3 +45,7 @@ class MeetingSerializer(serializers.ModelSerializer):
         fields = ('id', 'title','requestor_id', 'participant', 'rooms', 'room_required','video_conference_required','priority','start_time', 'end_time')
         read_only_fields = ('created', 'slug')
 
+class PeriodicTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PeriodicTask
+        fields = ('name', 'task', 'interval', 'crontab')
