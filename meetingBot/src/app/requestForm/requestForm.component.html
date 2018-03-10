@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    </head>-->
+    <style>
+        label {
+  /* To make sure that all labels have the same size and are properly aligned */
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+input, textarea {
+    display: inline-block;
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  /* font: 1em sans-serif; */
+
+  /* To give the same size to all text fields */
+  /* width: 300px; */
+  /* box-sizing: border-box; */
+
+  /* To harmonize the look & feel of text field border */
+  /* border: 1px solid #999; */
+}
+    
+        </style>
+        
+    
+        <label for="title" >Meeting Title</label>
+        <input type="text"  name="title"><br>
+        <!-- <label type="text" for="requester">Requester</label>
+        <input type="text" name="requester"><br> -->
+        <label>From Date</label>
+        <input type="date" ><br>
+        <label>To Date </label>
+        <input type="date" ><br>
+        <label>From Time</label>
+        <input type="time" ><br>
+        <label>To Time </label>
+        <input type="time" ><br>
+        <div>
+        <form>
+            
+                <label>Repetative:&nbsp;</label>
+                <!-- <p-radioButton ng-model="true" label="Y" name="groupname" (click)= "changeValue(true)"></p-radioButton>
+                <p-radioButton  ng-model="false" label="N" name="groupname" (click)= "changeValue(false)"></p-radioButton> -->
+                <p-radioButton label="Y" name="groupname" value="YES" [(ngModel)]="selectedValue"></p-radioButton>
+                <p-radioButton label="N" name="groupname" value="NO" [(ngModel)]="selectedValue"></p-radioButton>
+            <div *ngIf="selectedValue === 'YES'">
+                <label>No Of Days</label>
+                    <input   type="number" >  
+            </div>
+            <div *ngIf="selectedValue !== 'NO'">
+            </div>
+    </form>
+    </div>
+        <label>Participant</label>
+        <input name="participant"  [(ngModel)]="frmParticipant.name" type="text" >  
+        <label>Location</label>
+        <input name="location"  [(ngModel)]="frmParticipant.location" type="text" >
+        <button  class = "btn btn-primary" label="Click" (click)="addParticipantToList()">Add</button> 
+        <div align="left">  
+        <th>List Of Participants</th>
+        <p-table [value]="participants" border="1" width="400" >
+            <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Delete Participant</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-participant>
+            <tr>
+                <td>{{participant.name}}</td>
+                <td>{{participant.location}}</td>
+                <button  class = "btn btn-primary" label="Click" (click)="deleteParticipantFromList()">Delete</button>
+            </tr>
+        </ng-template>
+        </p-table>
+        <!-- <button  class = "btn btn-primary" label="Click" (click)="deleteParticipantFromList()">Delete</button> -->
+    </div>
+
+    <p-accordion>
+            <p-accordionTab header="Advanced Options">
+            <label>Priority </label>
+            <p-dropdown [options]="selectedpriorities" [(ngModel)]="priority"></p-dropdown>
+            <br>
+            <label>Room Required </label>
+            <p-radioButton label="Y"  value="YES" ></p-radioButton>
+            <p-radioButton label="N"  value="NO" ></p-radioButton>
+            <br>
+            <label>Video Conference </label>
+            <p-radioButton label="Y"  value="YES"  [(ngModel)]="Value"></p-radioButton>
+            <p-radioButton label="N"  value="NO"  [(ngModel)]="Value" ></p-radioButton>
+        </p-accordionTab>
+        </p-accordion>
+        <div align="right">
+                <button  class = "btn btn-primary" label="Click" onclick="requestCancel()" [(ngModel)]="Value">Cancel</button>
+                <button  class = "btn btn-primary" label="Click" onclick="submitForm()" [(ngModel)]="Value">Submit</button>
+            </div>
+    <!-- </body>
+</html> -->

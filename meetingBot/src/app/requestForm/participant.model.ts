@@ -1,0 +1,7 @@
+
+export class Participant{
+
+    constructor(public name:string,public location:string){
+
+    }
+}
