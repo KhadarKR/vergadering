@@ -1,3 +1,4 @@
+import { ParticipantsInfoService } from './../servicesAndModels/participantsinfo.service';
 import { TimeRefService } from './../servicesAndModels/timeRef.service';
 import { RoomMeetingInfoService } from './../servicesAndModels/roomMeetingInfo.service';
 import { RoomInfoService } from './../servicesAndModels/roomInfo.service';
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'angular-calendar';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { DemoUtilsModule } from '../demo-utils/module';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -23,12 +25,12 @@ import { DemoUtilsModule } from '../demo-utils/module';
     FormsModule,
     NgbModalModule.forRoot(),
     CalendarModule.forRoot(),
-    DemoUtilsModule
+    DemoUtilsModule,DialogModule
   ],
   declarations: [DemoComponent],
   exports: [DemoComponent],
   providers:[CalendarRefService,DaysBeforeInfoService,EmployeeAgendaAvailabilityService,EmployeeDetailsService,MeetingInfoService,PriorityInfoService,
-    ProfileInfoService,RoomAvailableBufferService,RoomInfoService,RoomMeetingInfoService,TimeRefService]
+    ProfileInfoService,RoomAvailableBufferService,RoomInfoService,RoomMeetingInfoService,TimeRefService ,ParticipantsInfoService]
 })
 export class DemoModule {}
  

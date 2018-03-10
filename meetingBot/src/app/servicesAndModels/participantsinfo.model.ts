@@ -2,7 +2,7 @@
 export class ParticipantsInfo
 {
     
-        constructor(public  MeetingID:number, public RequestedID:number
+        constructor(public  MeetingID:number, public EmpID:number
         ){
     
         }

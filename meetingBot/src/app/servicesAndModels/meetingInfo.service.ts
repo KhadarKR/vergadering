@@ -12,10 +12,12 @@ restURL = "http://localhost:3000/Meeting_INFO/";
     // this.productsData = [new Product(1,"Bravia" , 4500 , "SOny Smart Tv") ,new Product(2 , "Galaxy", 15000 ,"Samsung Mobile")];
   }
 
-  getMeetingsInfo(){
+  getMeetingsInfos(){
     // return this.productsData;
     return this.http.get<MeetingInfo[]>(this.restURL);
   }
+
+
 
   addMeetingsInfo (newMeetingInfo:MeetingInfo){
 return this.http.post<MeetingInfo>(this.restURL,newMeetingInfo);
@@ -28,6 +30,6 @@ return this.http.post<MeetingInfo>(this.restURL,newMeetingInfo);
 
 
   updateMeetingsInfo (meetingInfo:MeetingInfo){
-    return this.http.put<MeetingInfo>(this.restURL+"/"+meetingInfo.MeetingId,meetingInfo);
+    return this.http.put<MeetingInfo>(this.restURL+"/"+meetingInfo.MeetingID,meetingInfo);
       }
 }

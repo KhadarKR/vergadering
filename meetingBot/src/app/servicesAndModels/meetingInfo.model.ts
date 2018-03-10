@@ -1,7 +1,7 @@
 
 export class MeetingInfo{
     
-        constructor(public MeetingId:number, public Meeting_Title:string, public RequestorID:number,
+        constructor(public MeetingID:number, public Meeting_Title:string, public RequestorID:number,
             public Priority:string , public InitiatingTime:Date, public BOT_Nr_Replan:number,  
             public REQ_Nr_Replan:number, public TYPE:Boolean ,    public PreferedStartDT:Date , 
             public PreferEndDT:Date ,public PreferStartTM:Date , public PreferEndTM:Date , public RoomReq:Boolean , 

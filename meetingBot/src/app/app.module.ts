@@ -36,7 +36,7 @@ const appRoutes = [
     bootstrap: [AppComponent],
     // specify here the dependency modules
     imports:[BrowserModule, FormsModule, LoginModule , MenubarModule , RouterModule.forRoot(appRoutes,{useHash:true}) ,ShoppingModule,BrowserAnimationsModule,
-        DemoModule ,RequestFormModule]
+        DemoModule ,RequestFormModule,]
 })
 // Define a Class for the module
 export class AppModule {    
