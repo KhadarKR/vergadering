@@ -198,7 +198,6 @@ import {
           for (var index = 0; index < this.participants.length; index++) {
            if (this.id == data[index].MeetingID) {
             this.Participants[x] =   data[index].EmpID;
-            alert(data[index].EmpID)
             x++;
            } 
             }
@@ -207,26 +206,26 @@ import {
         (err) => console.log("Error",err)
       );
 
-      this.empse.getEmployeeDetails().subscribe(
-        (data) => {this.employeeinfo = data;
-          let x = 0;
-          for (var index = 0; index < data.length; index++) {
-            if (this.Requestor == data[index].EmpID) {
-              this.RequestorName = data[index].EmpName;
-            } 
-            for (var index1 = 0; index1 < this.Participants.length; index1++) {
-                if (this.Participants[index1] == data[index].EmpID) {
-                this.ParticipantsNames[x] =   data[index].EmpName;
-                x=x+1;
-               } 
+      // this.empse.getEmployeeDetails().subscribe(
+      //   (data) => {this.employeeinfo = data;
+      //     let x = 0;
+      //     for (var index = 0; index < data.length; index++) {
+      //       if (this.Requestor == data[index].EmpID) {
+      //         this.RequestorName = data[index].EmpName;
+      //       } 
+      //       for (var index1 = 0; index1 < this.Participants.length; index1++) {
+      //           if (this.Participants[index1] == data[index].EmpID) {
+      //           this.ParticipantsNames[x] =   data[index].EmpName;
+      //           x=x+1;
+      //          } 
               
-            }
+      //       }
            
-            }
-          }
-        ,
-        (err) => console.log("Error",err)
-      );
+      //       }
+      //     }
+      //   ,
+      //   (err) => console.log("Error",err)
+      // );
 
 
       this.showDialog();
