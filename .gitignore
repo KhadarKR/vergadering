@@ -1,3 +1,46 @@
+# Entries in this file are ignored but git and never added to the repository
+
+# Python
+# --------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# local test files
+/*test*.py
+# Project virtual env
+/.venv/
+/backendcode/*.sqlite3
+
+# Django
+# --------------------
+# Static files, only applicable after it's deployed to the server
+/static/
+# Databases. To make sure we don't put a development database in the repo
+/database/
+# Exclude django's secret key file
+/django_secret_key
+
+
+# Pycharm
+# --------------------
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Celery
+# --------------------
+celerybeat.pid
+=======
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
@@ -43,5 +86,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-
+# Skip node modules
 \meetingBot\node_modules\
+
