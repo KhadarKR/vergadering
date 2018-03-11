@@ -1,0 +1,12 @@
+{"Employee_Details":[
+{"EmpID":5555,"EmpName":"Prashanth","Location":"HYD","Profile":5,"Manager":6655,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":4444,"EmpName":"Ashish","Location":"HYD","Profile":4,"Manager":5544,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":3333,"EmpName":"Khadar","Location":"HYD","Profile":3,"Manager":4433,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":2222,"EmpName":"Sunand","Location":"HYD","Profile":2,"Manager":3322,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":1111,"EmpName":"Sai Kiran","Location":"HYD","Profile":1,"Manager":2211,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":6655,"EmpName":"","Location":"HYD","Profile":1,"Manager":6655,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":5544,"EmpName":"","Location":"HYD","Profile":1,"Manager":5544,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":4433,"EmpName":"","Location":"HYD","Profile":1,"Manager":4433,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":3322,"EmpName":"","Location":"HYD","Profile":1,"Manager":3322,"Avail_Start":"09:00:00","Avail_End":"18:00:00"},
+{"EmpID":2211,"EmpName":"","Location":"HYD","Profile":1,"Manager":2211,"Avail_Start":"09:00:00","Avail_End":"18:00:00"}
+]}

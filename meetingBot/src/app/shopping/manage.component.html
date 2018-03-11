@@ -1,0 +1,38 @@
+<h3> LIST OF PRODUCTS   Count: <span class="label label-primary">{{products.length}}</span></h3>
+<form class="well">
+    <input  [(ngModel)]="frmProduct.id" placeholder="Enter Product Id" name="txtId" readonly>
+    <input  [(ngModel)]="frmProduct.name" placeholder="Enter Product name" name="txtname" >
+    <input  [(ngModel)]="frmProduct.price" placeholder="Enter Product price" name="txtprice" >
+    <input  [(ngModel)]="frmProduct.description" placeholder="Enter Product description" name="txtdescription" >
+    <button type="button" class="btn btn-primary" (click)="add()" >Add</button>
+    <button type="button" class="btn btn-primary" (click)="Modify()" >Update</button>
+  </form>
+  
+<p-table [value]="products" >
+  <ng-template pTemplate="header">
+  <tr>
+  <th>Id</th>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Description</th>
+  <th>Action</th>
+
+</tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-product>
+      <tr>
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.description}}</td>
+          <td> <button class="btn btn-danger btn-xs" (click)="delete(product.id)">Delete</button>  
+           <button class="btn btn-success btn-xs" (click)="beforeModify(product)">Edit</button>  
+
+          </td>
+      </tr>
+  </ng-template>
+  </p-table> 
+
+  
+  
