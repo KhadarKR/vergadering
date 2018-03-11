@@ -1,7 +1,5 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    </head>-->
+<!-- <!DOCTYPE html> -->
+
     <style>
         label {
   /* To make sure that all labels have the same size and are properly aligned */
@@ -25,26 +23,24 @@ input, textarea {
 }
     
         </style>
-        
-    
+      <h1>MEETING PARAMETERS</h1>
+      <p-growl *ngIf="growl" [(value)]="msgs"></p-growl>
         <label for="title" >Meeting Title</label>
-        <input type="text"  name="title"><br>
-        <!-- <label type="text" for="requester">Requester</label>
-        <input type="text" name="requester"><br> -->
+        <input type="text"  [(ngModel)]="tittle" name="title" value=""><br>
+         <label type="text" for="requester">Requester</label>
+        <input type="text" [(ngModel)]="requestor" name="requester"><br> 
         <label>From Date</label>
-        <input type="date" ><br>
+        <input type="date" [(ngModel)]="FromDate" ><br>
         <label>To Date </label>
-        <input type="date" ><br>
+        <input type="date" [(ngModel)]="Todate"><br>
         <label>From Time</label>
-        <input type="time" ><br>
+        <input type="time" [(ngModel)]="Fromtime"><br>
         <label>To Time </label>
-        <input type="time" ><br>
+        <input type="time" [(ngModel)]="ToTime"><br>
         <div>
-        <form>
+        <!-- <form> -->
             
                 <label>Repetative:&nbsp;</label>
-                <!-- <p-radioButton ng-model="true" label="Y" name="groupname" (click)= "changeValue(true)"></p-radioButton>
-                <p-radioButton  ng-model="false" label="N" name="groupname" (click)= "changeValue(false)"></p-radioButton> -->
                 <p-radioButton label="Y" name="groupname" value="YES" [(ngModel)]="selectedValue"></p-radioButton>
                 <p-radioButton label="N" name="groupname" value="NO" [(ngModel)]="selectedValue"></p-radioButton>
             <div *ngIf="selectedValue === 'YES'">
@@ -53,7 +49,7 @@ input, textarea {
             </div>
             <div *ngIf="selectedValue !== 'NO'">
             </div>
-    </form>
+    <!-- </form> -->
     </div>
         <label>Participant</label>
         <input name="participant"  [(ngModel)]="frmParticipant.name" type="text" >  
@@ -87,17 +83,16 @@ input, textarea {
             <p-dropdown [options]="selectedpriorities" [(ngModel)]="priority"></p-dropdown>
             <br>
             <label>Room Required </label>
-            <p-radioButton label="Y"  value="YES" ></p-radioButton>
-            <p-radioButton label="N"  value="NO" ></p-radioButton>
+            <p-radioButton label="Y"  value="YES" [(ngModel)]="ValueRoom"></p-radioButton>
+            <p-radioButton label="N"  value="NO" [(ngModel)]="ValueRoom"></p-radioButton>
             <br>
             <label>Video Conference </label>
-            <p-radioButton label="Y"  value="YES"  [(ngModel)]="Value"></p-radioButton>
-            <p-radioButton label="N"  value="NO"  [(ngModel)]="Value" ></p-radioButton>
+            <p-radioButton label="Y"  value="YES"  [(ngModel)]="ValueConf"></p-radioButton>
+            <p-radioButton label="N"  value="NO"  [(ngModel)]="ValueConf" ></p-radioButton>
         </p-accordionTab>
         </p-accordion>
         <div align="right">
-                <button  class = "btn btn-primary" label="Click" onclick="requestCancel()" [(ngModel)]="Value">Cancel</button>
-                <button  class = "btn btn-primary" label="Click" onclick="addMeetingsInfo()" [(ngModel)]="Value">Submit</button>
+                <button  class = "btn btn-primary" label="Click" (click)="requestCancel()" >Cancel</button>
+                <button  class = "btn btn-primary" label="Click" (click)="addMeetingsInfo()">Submit</button>
             </div>
-    <!-- </body>
-</html> -->
+    

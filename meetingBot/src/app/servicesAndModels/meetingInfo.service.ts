@@ -30,6 +30,6 @@ return this.http.post<MeetingInfo>(this.restURL,newMeetingInfo);
 
 
   updateMeetingsInfo (meetingInfo:MeetingInfo){
-    return this.http.put<MeetingInfo>(this.restURL+"/"+meetingInfo.MeetingID,meetingInfo);
+    return this.http.put<MeetingInfo>(this.restURL+"/"+meetingInfo.id,meetingInfo);
       }
 }

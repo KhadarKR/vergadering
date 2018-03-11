@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { RoomInfo } from './../servicesAndModels/roomInfo.model';
 import { ParticipantsInfo } from './../servicesAndModels/participantsinfo.model';
 import { EmployeeDetails } from './../servicesAndModels/employeeDetails.model';
@@ -111,7 +112,7 @@ import {
     activeDayIsOpen: boolean = true;
   
     constructor(private modal: NgbModal ,private ms:MeetingInfoService , private parse:ParticipantsInfoService, 
-      private empse:EmployeeDetailsService , private roser:RoomInfoService) {      
+      private empse:EmployeeDetailsService , private roser:RoomInfoService,private router:Router) {      
     }
 
     ngOnInit() {
@@ -121,7 +122,7 @@ import {
           for (var index = 0; index < this.eventsfromDatabase.length; index++) {
             console.log(data[index])
             this.events.push({
-        id:  data[index].MeetingID,
+        id:  data[index].id,
       title: data[index].Meeting_Title,
       start:  new Date(data[index].PlannedDT),
       // startTime: data[index].PlannnedTM.toString(),
@@ -174,8 +175,8 @@ import {
         (data) => {
           this.eventsfromDatabase = data;
           for (var index = 0; index < data.length; index++) {
-           if (event.id == data[index].MeetingID) {
-            this.id = data[index].MeetingID;
+           if (event.id == data[index].id) {
+            this.id = data[index].id;
             this.Tittle =   data[index].Meeting_Title;
             this.StartDate =  data[index].PlannedDT;
             this.StartTime  = this.eventsfromDatabase[index].PlannnedTM;
@@ -255,5 +256,10 @@ import {
         showDialog() {
             this.display = true;
         }
+
+
+        requestForm(obj){
+          this.router.navigate(["/requestForm"]) 
+      }
   }
   

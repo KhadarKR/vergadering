@@ -73,6 +73,11 @@
       </div>
     </div>
   </div>
+  <div
+  class="btn btn-primary"
+  (click)= 'requestForm($event)'>
+  Request Meeting
+</div>
   <br>
   <div [ngSwitch]="view">
     <mwl-calendar-month-view

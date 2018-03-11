@@ -1,3 +1,4 @@
+import { GrowlModule } from 'primeng/growl';
 import { NgModule } from "@angular/core";
 import { RequestFormComponent } from "./requestForm.component";
 import {AccordionModule} from 'primeng/accordion';
@@ -18,7 +19,7 @@ import {DropdownModule} from 'primeng/dropdown';
     exports : [RequestFormComponent],
     imports :[BrowserAnimationsModule,DropdownModule,
         BrowserModule, AccordionModule,ButtonModule,
-        TableModule,RadioButtonModule,FormsModule,CheckboxModule ]
+        TableModule,RadioButtonModule,FormsModule,CheckboxModule ,GrowlModule]
 
 })
 export class RequestFormModule{
