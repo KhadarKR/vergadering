@@ -9,7 +9,7 @@ colorama==0.3.7
 Django==2.0.2
 django-celery==3.2.2
 django-cors-headers==2.2.0
-djangorestframework==3.7.7
+djangorestframework==3.9.1
 flake8==3.5.0
 flake8-polyfill==1.0.2
 idna==2.5
